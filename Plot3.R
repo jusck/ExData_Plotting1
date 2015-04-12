@@ -7,7 +7,7 @@
 
 #https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
 
-hh<-read.delim('/Users/jus/household_power_consumption.txt',header=T,sep=';')
+hh<-read.delim('/Users/jus/household_power_consumption.txt',header=T,sep=';',na.strings='?',as.is=T)
 #       *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Add a specific MeasDate and DateTIme variables holding the date and date time.
