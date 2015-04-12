@@ -15,14 +15,17 @@ hh$MeasDate<-as.Date(hh$Date,"%d/%m/%Y")
 
 hh$DateTime<-strptime(paste(hh$Date,hh$Time),"%d/%m/%Y %H:%M:%S")
 
-hhsub<-hh[hh$MeasDate>=as.Date('01/02/2007','%d/%m/%Y') & hh$MeasDate<=as.Date('02/02/2007','%d/%m/%Y'),]
+hhsub<-hh[hh$MeasDate>=as.Date('01/02/2007','%d/%m/%Y') & 
+           hh$MeasDate<=as.Date('02/02/2007','%d/%m/%Y'),]
 
-
-plot(hhsub$DateTime,as.numeric(hhsub$Global_active_power)/1000, type="n", main="",xlab="",ylab='Global Active Power (kilowatts)') 
+# Now plot
+plot(hhsub$DateTime,as.numeric(hhsub$Global_active_power)/1000, type="n", 
+     main="",xlab="",ylab='Global Active Power (kilowatts)') 
 lines(hhsub$DateTime,as.numeric(hhsub$Global_active_power)/1000) 
 
+# Now plot to a file
 png(file='/Users/jus/Desktop/ExData_Plotting1/Plot2.png',width=480,heigh=480)
-plot(hhsub$DateTime,as.numeric(hhsub$Global_active_power)/1000, type="n", main="",xlab="",ylab='Global Active Power (kilowatts)') 
-lines(hhsub$DateTime,as.numeric(hhsub$Global_active_power)/1000) 
+ plot(hhsub$DateTime,as.numeric(hhsub$Global_active_power)/1000, type="n", 
+      main="",xlab="",ylab='Global Active Power (kilowatts)') 
+ lines(hhsub$DateTime,as.numeric(hhsub$Global_active_power)/1000) 
 dev.off()
-

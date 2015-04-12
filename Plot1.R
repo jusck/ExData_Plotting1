@@ -13,11 +13,16 @@ hh<-read.delim('/Users/jus/household_power_consumption.txt',header=T,sep=';')
 # Add a specific MeasDate variable holding the date.
 hh$MeasDate<-as.Date(hh$Date,"%d/%m/%Y")
 
-hhsub<-hh[hh$MeasDate>=as.Date('01/02/2007','%d/%m/%Y') & hh$MeasDate<=as.Date('02/02/2007','%d/%m/%Y'),]
+hhsub<-hh[hh$MeasDate>=as.Date('01/02/2007','%d/%m/%Y') & 
+          hh$MeasDate<=as.Date('02/02/2007','%d/%m/%Y'),]
 
-with(hhsub,hist(as.numeric(Global_active_power)/1000,breaks=24,col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)"))
+# Now plot
+with(hhsub,hist(as.numeric(Global_active_power)/1000,breaks=24,col="red",
+                main="Global Active Power",xlab="Global Active Power (kilowatts)"))
 
+# Now plot to a file
 png(file='/Users/jus/Desktop/ExData_Plotting1/Plot1.png',width=480,heigh=480)
-with(hhsub,hist(as.numeric(Global_active_power)/1000,breaks=24,col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)"))
+with(hhsub,hist(as.numeric(Global_active_power)/1000,breaks=24,col="red",
+                main="Global Active Power",xlab="Global Active Power (kilowatts)"))
 dev.off()
 
